@@ -1,0 +1,134 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "L5 OpenApi",
+        "description": "Swagger for package API",
+        "contact": {
+            "email": "nisrina.fano@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "description": "Home page",
+                "responses": {
+                    "default": {
+                        "description": "Welcome page"
+                    }
+                }
+            }
+        },
+        "/api/package": {
+            "get": {
+                "summary": "Get package record",
+                "operationId": "getPackage",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create new package record",
+                "operationId": "createPackage",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "path",
+                        "schema": {
+                            "type": "json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Data not saved"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a record",
+                "operationId": "deletePackage",
+                "parameters": [
+                    {
+                        "name": "transaction_id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Data not saved"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update partial or all data from a record",
+                "operationId": "updatePackage",
+                "parameters": [
+                    {
+                        "name": "transaction_id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "data",
+                        "in": "path",
+                        "schema": {
+                            "type": "json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Data not saved"
+                    }
+                }
+            }
+        },
+        "/api/package/": {
+            "get": {
+                "summary": "Get package record by ID",
+                "operationId": "getPackagebyId",
+                "parameters": [
+                    {
+                        "name": "transaction_id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Data not found"
+                    }
+                }
+            }
+        }
+    }
+}
